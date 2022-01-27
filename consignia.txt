@@ -1,0 +1,16 @@
+5 productos generados al azar
+ con faker.js en lugar de tomarse desde la base de datos nombre, precio, foto
+
+
+cambiar mensajes del chat a
+{
+author:{
+id:'mail de usuario',
+nombre: 'nombre',
+apellido: 'apellido',
+edad: 'edad',
+alias: 'alias',
+avatar: 'url de avatar'
+}, 
+text: 'mensajes del usuario'
+}

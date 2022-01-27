@@ -1,0 +1,20 @@
+{
+  "name": "desafio22Mocks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "faker": "^5.5.0",
+    "normalizr": "^3.6.1",
+    "socket.io": "^4.4.1"
+  }
+}

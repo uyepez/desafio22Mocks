@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+
+    
+
+    <div class="container py-3">
+
+        <%- include('../partials/head'); %>
+        <main>
+            <div class="row row-cols-1 row-cols-md-12 mb-12 text-center">
+                <div class="col">
+                    <div class="card mb-12 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">Ingrese Protducto</h4>
+                        </div>
+                        <div class="card-body">
+                            <form class="row g-3 pt-5" action="/productos" method="post" >
+                                <div class="col-md-6">
+                                    <label for="title" class="form-label">Nombre del producto</label>
+                                    <input type="text" class="form-control" id="title" name="title" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="price" class="form-label">Precio</label>
+                                    <input type="number" class="form-control" id="price" name="price" required>
+                                </div>
+                                <div class="col-12">
+                                    
+                                    <label for="thumbnail" class="form-label">Foto URL</label>
+                                    <input type="text" class="form-control" id="thumbnail" name="thumbnail" required value="">
+                                </div>
+                            
+                                <div class="col-12">
+                                    <button type="submit" class="w-100 btn btn-lg btn-outline-primary">Guardar</button>
+                                </div>
+                            </form>
+                            
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        <div class="row row-cols-1 row-cols-md-12 mb-12 text-center pt-5">  
+            <div class="col">
+                <div class="card mb-12 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal">Vista de Protductos</h4>
+                    </div>
+            
+            
+
+            
+                            <div class="table-responsive">
+                                <table class="table align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Foto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+            
+                                        <% productos.forEach(function(producto){%>
+                                            <tr>
+                                                <td>
+                                                    <%= producto.nombre %>
+                                                </td>
+                                                <td>
+                                                    <%= producto.precio %>
+                                                </td>
+                                                <td><img src="<%= producto.foto %>" alt="" height="60px"></td>
+                                            </tr>
+                                            <% }) %>
+            
+            
+            
+                                    </tbody>
+                                </table>
+                            </div>
+
+            
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- centro de mesnajes -->
+        
+        <div class="row row-cols-1 row-cols-md-12 mb-12 pt-5">
+            <div class="col">
+                <div class="card mb-12 rounded-3 shadow-sm">
+                    <div class="card-header py-3  text-center">
+                        <h4 class="my-0 fw-normal">Centro de mensajes</h4>
+                    </div>
+                    <div class="card-body ">
+                        <form class="row g-3 pt-5 " id="loginForm">
+                            <div class="col-md-6">
+        
+                                <div class="alert alert-warning  text-center" id="miAlert">
+                                    Para enviar mensajes introduce tus datos.
+                                </div>
+                                <label for="title" class="form-label">Correo electronico</label>
+                                <input type="text" class="form-control" id="correo" name="correo" required>
+                                <label for="title" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre">
+                                <label for="title" class="form-label">Apellido</label>
+                                <input type="text" class="form-control" id="apellido" name="apellido">
+                                <label for="title" class="form-label">Edad</label>
+                                <input type="number" class="form-control" id="edad" name="edad">
+                                <label for="title" class="form-label">Alias</label>
+                                <input type="text" class="form-control" id="alias" name="alias">
+                                <label for="title" class="form-label">Avatar</label>
+                                <input type="text" class="form-control" id="avatar" name="avatar" value="https://diodocreativo.mx/img/-avatar_89781.png">
+                                <img src="https://diodocreativo.mx/img/-avatar_89781.png" width="50px" height="50px" class="rounded-circle" >
+                                <button type="submit" class="btn btn-lg btn-outline-primary mt-3" id="btEntrar">entrar</button>
+                                
+                            </div>
+        
+                        </form>
+        
+                        <hr>
+                        <form class="row g-3 pt-5" id="mensajeForm" style="display: none;">
+                            <div class="col-md-6">
+                                <label for="title" class="form-label">Mensaje</label>
+                                <input type="text" class="form-control" id="mensaje" name="mensaje" value="Hola a todos!!"
+                                    required onkeypress="return permite(event, 'num_car')">
+                                <button type="button" class="btn btn-outline-primary mt-3" id="enviaMensaje">Enviar¡</button>
+                            </div>
+                        </form>
+        
+                        <div id="listaMensajes">
+        
+                        </div>
+        
+        
+        
+                    </div>
+        
+                </div>
+            </div>
+        
+        
+        </div>
+    
+            
+        </main>
+    
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <small class="d-block mb-3 text-muted">&copy; Nestor Uriel Yepez ->Reto Mocks</small>
+                </div>
+                
+            </div>
+        </footer>
+    </div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+<script src="socket.io/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+<script src="index.js"></script>
+
+    
+</body>
+</html>
